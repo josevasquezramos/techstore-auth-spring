@@ -1,6 +1,7 @@
 package me.josevasquez.techstoreauthspring.service;
 
 import me.josevasquez.techstoreauthspring.dto.RegisterRequestDTO;
+import me.josevasquez.techstoreauthspring.entity.Role;
 import me.josevasquez.techstoreauthspring.entity.User;
 import me.josevasquez.techstoreauthspring.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,7 +26,7 @@ public class AuthService {
         User user = new User();
         user.setName(request.name());
         user.setEmail(request.email());
-        user.setRole(request.role());
+        user.setRole(Role.ROLE_CUSTOMER);
 
         user.setPassword(passwordEncoder.encode(request.password()));
 
